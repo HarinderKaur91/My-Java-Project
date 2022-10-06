@@ -1,5 +1,5 @@
 
-public class LearnSwitch {
+public class Question6 {
 
 	public static void main(String[] args) {
 		
@@ -22,6 +22,7 @@ public class LearnSwitch {
 			break;
 		case "%" :
 			System.out.println("Modulus of num1 and num2 = "+ (num1%num2));
+			break;
 
 		default:
 			System.out.println("enter a valid operator");

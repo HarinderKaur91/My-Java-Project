@@ -1,6 +1,6 @@
 
-import java.util.Arrays;
-import java.util.*;
+
+
 
 
 public class FirstJavaClass {
@@ -32,16 +32,7 @@ public class FirstJavaClass {
 		}
 
 	}*/
-		Scanner sc = new Scanner(System.in);
-		//System.out.println("first =");
-		//int a = sc.nextInt();
-		//System.out.println("second =");
-		//int b = sc.nextInt();
-		//int c = a+b;
-		System.out.println("enter your message");
-		float s = sc.nextFloat();
-		System.out.println(s);
-		
+		//
 }
 }
 // format code by ctrl+shift+F

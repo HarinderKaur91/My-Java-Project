@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class Practice {
 
@@ -27,4 +27,4 @@ public class Practice {
 		}
 
 	}
-}
+}*/

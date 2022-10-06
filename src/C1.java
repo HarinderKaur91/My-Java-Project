@@ -5,7 +5,7 @@ public class C1 {
 
 		int actualdrinkCapacity = 3;
 
-		for (int drinksTaken = 2; drinksTaken <= actualdrinkCapacity ; drinksTaken++) {
+		for (int drinksTaken = 1; drinksTaken <= actualdrinkCapacity ; drinksTaken++) {
 
 			System.out.println("Drink " + drinksTaken + " times");
 			if (drinksTaken == actualdrinkCapacity) {
