@@ -11,14 +11,14 @@ public class PizzaBillUpdated {
 		int smallPizzaPrice = 15;
 		int mediumPizzaPrice = 20;
 		int largePizzaPrice = 25;
-		int totalBill;
-		boolean isPepperoniAdded = false;
+		int totalBill=0;
+		boolean isPepperoniAdded = true;
 		boolean isextraChesseAdded = false;
 		int smallPizzaPepperoni = 0;
 		int mediumPizzaPepperoni = 0;
 		int largePizzaPepperoni = 0;
 		int extraCheese = 0;
-		String pizzaSize = "large";
+		String pizzaSize = "medium";
 		switch (pizzaSize) {
 		case "small":
 			System.out.println("You have ordered small pizza");
@@ -29,7 +29,6 @@ public class PizzaBillUpdated {
 				extraCheese=1;
 			}
 			totalBill = smallPizzaPrice+smallPizzaPepperoni+extraCheese;
-			System.out.println("Total Bill = $" + totalBill);
 			break;
 		case "medium":
 			System.out.println("You have ordered medium pizza");
@@ -40,7 +39,6 @@ public class PizzaBillUpdated {
 				extraCheese=1;
 			}
 			totalBill = mediumPizzaPrice+mediumPizzaPepperoni+extraCheese;
-			System.out.println("Total Bill = $" + totalBill);
 			break;
 		case "large":
 			System.out.println("You have ordered large pizza");
@@ -51,11 +49,11 @@ public class PizzaBillUpdated {
 				extraCheese=1;
 			}
 			totalBill = largePizzaPrice+largePizzaPepperoni+extraCheese;
-			System.out.println("Total Bill = $" + totalBill);
 			break;
 		default:
 			System.out.println("enter valid pizza size");
 			break;
 		}
+		System.out.println("Total Bill = $" + totalBill);
 	}
 }
