@@ -1,5 +1,5 @@
-
-public class Question4 {
+//	Write a program to check if the number is prime or not.
+public class PrimeCheck {
 
 	public static void main(String[] args) {
 		
