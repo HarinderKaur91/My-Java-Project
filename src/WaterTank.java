@@ -9,7 +9,7 @@ public class WaterTank {
 
 		int waterTankCapacity = 100;
 
-		for (int waterFilled = 9; waterFilled < waterTankCapacity; waterFilled += 10) {
+		for (int waterFilled = 1; waterFilled < waterTankCapacity; waterFilled += 10) {
 
 			System.out.println("Water added " + waterFilled + " litres");
 
@@ -18,6 +18,7 @@ public class WaterTank {
 				break;
 
 			}
+			
 		}
 	}
 
