@@ -13,7 +13,7 @@ public class ArrayScanner {
 		String[] nameList = new String[arraySize];   // Declaring an Array of String type
 
 		// Taking user input to store array elements in the array
-		for (int i = 0; i < arraySize; i++) {
+		for (int i = 0; i <nameList.length ; i++) {
 			System.out.println("enter array element at index " + i + " : ");
 			nameList[i] = sc.next();
 		}
@@ -30,8 +30,8 @@ public class ArrayScanner {
 				counter++;
 			}
 		}
-		if (counter == 0) {
-			System.out.println("\n" + name + " is not present in the list");
+		if (counter > 0) {
+			//System.out.println("\n" + name + " is not present in the list");
 		} else {
 			System.out.println("\n" + name + " is present " + counter + " times in the list");
 		}

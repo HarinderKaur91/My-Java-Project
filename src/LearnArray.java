@@ -21,5 +21,6 @@ public class LearnArray {
 		for (String i : cars) {
 			System.out.println(i);
 		}
+		
 	}
 }
