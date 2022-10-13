@@ -123,6 +123,9 @@ public class CrsScoreCalculation {
 		if (workInCanada.equalsIgnoreCase("Y")) {
 			pointsOfWork = 10;
 		}
+		System.out.println("Points of Relatives in Canada = "+ pointsOfRelatives);
+		System.out.println(("Points of Study in Canada = "+ pointsOfStudy));
+		System.out.println("Points of Work in Canada = "+ pointsOfWork);
 		pointsOfAdaptability = pointsOfRelatives + pointsOfStudy + pointsOfWork;
 		return pointsOfAdaptability;
 	}

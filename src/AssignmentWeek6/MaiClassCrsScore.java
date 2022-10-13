@@ -94,7 +94,7 @@ public class MaiClassCrsScore {
 		System.out.println("\nTotal Points you have scored: " + totalCrsScore + " Points");
 
 		if (totalCrsScore >= 67) {
-			System.out.println("\nYou qualify to submit an Expression of Interest (EOI) to Immigration Canada");
+			System.out.println("\nYou QUALIFY to submit an Expression of Interest (EOI) to Immigration Canada");
 		} else {
 			System.out.println("You DO NOT qualify to submit an Expression of Interest (EOI) to Immigration Canada");
 		}

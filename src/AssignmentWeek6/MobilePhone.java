@@ -46,8 +46,7 @@ public class MobilePhone {
 		return modelOfPhone;
 	}
 
-	int phoneCost(String brandOfPhone, String modelOfPhone) {// method returning monthly cost of the phone
-																// based on brand and model
+	int phoneCost(String brandOfPhone, String modelOfPhone) {// method returning monthly cost of the phone based on brand and model
 		int costOfPhone = 0;
 		switch (brandOfPhone) {
 		case "Samsung":
@@ -108,8 +107,7 @@ public class MobilePhone {
 		return costOfPlan;
 	}
 
-	void outputBasedOnSelection(String modelOfPhone, String planOfPhone, int costOfPlan, int costOfPhone) {// method
-		// calculating total monthly amount based on model and plan
+	void outputBasedOnSelection(String modelOfPhone, String planOfPhone, int costOfPlan, int costOfPhone) {// method calculating total monthly amount based on model and plan
 		System.out.println("\nYou have Selected " + modelOfPhone + " with " + planOfPhone + " Plan");
 		System.out.println("\nYour Phone Tab will be		: $" + costOfPhone);
 		System.out.println("Your Monthly Plan will be 	: $" + costOfPlan);

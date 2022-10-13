@@ -19,10 +19,10 @@ public class MainClassCellPhone {
 		System.out.println("Please select the plan that you want to opt for: Rogers/ Telus/ Bell");
 		String planOfPhone = sc.next();
 
-		int costOfPlan = cp.planCost(planOfPhone);
-		int costOfPhone = cp.phoneCost(brandOfPhone, modelOfPhone);
+		int costOfPlan = cp.planCost(planOfPhone); //Invoking planCost method from CellPhone class
+		int costOfPhone = cp.phoneCost(brandOfPhone, modelOfPhone);//Invoking phoneCost method from CellPhone class
 
-		cp.outputBasedOnSelection(modelOfPhone, planOfPhone, costOfPlan, costOfPhone);
+		cp.outputBasedOnSelection(modelOfPhone, planOfPhone, costOfPlan, costOfPhone);//Invoking outputBasedOnSelection method from CellPhone class
 
 	}
 

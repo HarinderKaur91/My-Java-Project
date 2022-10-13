@@ -6,8 +6,7 @@ public class CellPhone {
 
 	Scanner sc = new Scanner(System.in);
 
-	String modelSelection(String brandOfPhone) { // creating a method which is taking user input to select brand of the
-													// phone
+	String modelSelection(String brandOfPhone) { //method returning model of the phone based on the brand
 		String modelOfPhone;
 		switch (brandOfPhone) {
 		case "Apple":
@@ -27,7 +26,7 @@ public class CellPhone {
 		return modelOfPhone;
 	}
 
-	int phoneCost(String brandOfPhone, String modelOfPhone) {
+	int phoneCost(String brandOfPhone, String modelOfPhone) {// method returning monthly cost of the phone based on brand and model
 		int costOfPhone = 0;
 		switch (brandOfPhone) {
 		case "Samsung":
@@ -70,7 +69,7 @@ public class CellPhone {
 		return costOfPhone;
 	}
 
-	int planCost(String planOfPhone) { // creating a method which is taking user input to select plan for the phone
+	int planCost(String planOfPhone) { // method returning monthly cost of the plan based on plan
 		int costOfPlan;
 		if (planOfPhone.equals("Rogers")) {
 			costOfPlan = 70;
@@ -82,7 +81,7 @@ public class CellPhone {
 		return costOfPlan;
 	}
 
-	void outputBasedOnSelection(String modelOfPhone, String planOfPhone, int costOfPlan, int costOfPhone) {
+	void outputBasedOnSelection(String modelOfPhone, String planOfPhone, int costOfPlan, int costOfPhone) {//method calculating total monthly amount based on model and plan
 		System.out.println("You have Selected " + modelOfPhone + " with " + planOfPhone + " Plan");
 		System.out.println("Your Phone Tab will be		:$" + costOfPhone);
 		System.out.println("Your Monthly Plan will be 	:$" + costOfPlan);
