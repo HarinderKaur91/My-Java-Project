@@ -7,7 +7,7 @@ public class MaiClassCrsScore {
 
 	public static void main(String[] args) {
 
-		Scanner sc= new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
 		CrsScoreCalculation cSC = new CrsScoreCalculation();
 
@@ -26,25 +26,30 @@ public class MaiClassCrsScore {
 
 		System.out.println("Enter your Experience in years: " + "4,5,6 or more than 6");
 		int numberOfYears = sc.nextInt();
-		while (numberOfYears < 4) {			// loop to handle invalid input
+		while (numberOfYears < 4) { // loop to handle invalid input
 			System.out.println(
 					"INVALID input.You must have 4 or more than 4 years of experience to enter into the application pool.");
 			System.out.println("Please enter your experience again.");
 			numberOfYears = sc.nextInt();
 		}
-		
+
 		int pointsOfExperience = cSC.experienceScore(numberOfYears);
 
 		System.out.println("Enter your age in years from 18 to 47:");
 		int age = sc.nextInt();
-		while (age < 18) {			// loop to handle invalid input
+		while (age < 18) { // loop to handle invalid input
 			System.out.println(
 					"INVALID age input. You should be 18 years old or more to enter into the application pool.");
 			System.out.println("Please enter your age again.");
 			age = sc.nextInt();
 		}
-
-		int pointsOfAge = cSC.ageScore(age);
+		int pointsOfAge = 0;
+		if (age >= 18 && age <= 35) {
+			pointsOfAge = cSC.ageScore1(age);
+		} else if (age > 35 && age <= 47) {
+			pointsOfAge = cSC.ageScore2(age);
+		}
+		//System.out.println("Points of age = " + pointsOfAge);
 
 		System.out.println("Enter your IELTS Score for Listening:");
 		double listeningScore = sc.nextDouble();
@@ -79,9 +84,9 @@ public class MaiClassCrsScore {
 			System.out.println("INVALID input. Enter 'Y' for Yes and 'N' for No");
 			workInCanada = sc.next();
 		}
-		
+
 		int pointsOfAdaptability = cSC.adaptabilityScore(RelativesPresentInCanada, studyInCanada, workInCanada);
-		
+
 		System.out.println("\n");
 		System.out.println("Points of Education 		= " + pointsOfEducation);
 		System.out.println("Points of Experience 		= " + pointsOfExperience);
