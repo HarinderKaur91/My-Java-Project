@@ -34,9 +34,7 @@ public class CrsCalculation {
 			pointsOfExperience = 13;
 		} else if (numberOfYears >= 6) {
 			pointsOfExperience = 15;
-		} else {
-			pointsOfExperience = 0;
-		}
+		} 
 		return pointsOfExperience;
 	}
 
