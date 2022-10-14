@@ -6,7 +6,7 @@ public class CrsCalculation {
 
 	Scanner sc = new Scanner(System.in);
 
-	int educationScore(int education) {//method returning points of education based on qualification
+	int calculateEducationScore(int education) {// method returning points of education based on qualification
 		int pointsOfEducation = 0;
 		switch (education) {
 		case 1:
@@ -28,7 +28,7 @@ public class CrsCalculation {
 		return pointsOfEducation;
 	}
 
-	int experienceScore(int numberOfYears) {//method returning points of experience based on number of years
+	int calculateExperienceScore(int numberOfYears) {// method returning points of experience based on number of years
 		int pointsOfExperience = 0;
 		if (numberOfYears == 4 || numberOfYears == 5) {
 			pointsOfExperience = 13;
@@ -40,29 +40,57 @@ public class CrsCalculation {
 		return pointsOfExperience;
 	}
 
-	int ageScore1(int age) {
+	int calculateAgeScore(int age) {
 		int pointsOfAge = 0;
-		pointsOfAge = 12;
-		return pointsOfAge;
-	}
-
-	int ageScore2(int age) {
-		int pointsOfAge = 12;
-		for (int i = 36; i < 48; i++) {
-			pointsOfAge--;
-			if(age == i) {
+		if (age >= 18 && age <= 35) {
+			pointsOfAge = 12;
+		} else {
+			switch (age) {
+			case 36:
+				pointsOfAge = 11;
+				break;
+			case 37:
+				pointsOfAge = 10;
+				break;
+			case 38:
+				pointsOfAge = 9;
+				break;
+			case 39:
+				pointsOfAge = 8;
+				break;
+			case 40:
+				pointsOfAge = 7;
+				break;
+			case 41:
+				pointsOfAge = 6;
+				break;
+			case 42:
+				pointsOfAge = 5;
+				break;
+			case 43:
+				pointsOfAge = 4;
+				break;
+			case 44:
+				pointsOfAge = 3;
+				break;
+			case 45:
+				pointsOfAge = 2;
+				break;
+			case 46:
+				pointsOfAge = 1;
 				break;
 			}
 		}
 		return pointsOfAge;
 	}
 
-	int ieltsScore(double listeningScore, double speakingScore, double readingScore, double writingScore) {
+	int calcualteIeltsScore(double listeningScore, double speakingScore, double readingScore, double writingScore) {
 		int pointsOfIelts = 0;
 		int pointsOfListening = 0;
 		int pointsOfSpeaking = 0;
 		int pointsOfReading = 0;
 		int pointsOfWriting = 0;
+		
 		if (listeningScore == 7.5) {
 			pointsOfListening = 5;
 		} else if (listeningScore >= 8) {
@@ -92,7 +120,7 @@ public class CrsCalculation {
 		return pointsOfIelts;
 	}
 
-	int adaptabilityScore(String RelativesPresentInCanada, String studyInCanada, String workInCanada) {
+	int calculateAdaptabilityScore(String RelativesPresentInCanada, String studyInCanada, String workInCanada) {
 		int pointsOfAdaptability = 0;
 		int pointsOfRelatives = 0;
 		int pointsOfStudy = 0;
@@ -106,9 +134,10 @@ public class CrsCalculation {
 		if (workInCanada.equalsIgnoreCase("Y")) {
 			pointsOfWork = 10;
 		}
-		System.out.println("Points of Relatives in Canada = " + pointsOfRelatives);
-		System.out.println(("Points of Study in Canada = " + pointsOfStudy));
-		System.out.println("Points of Work in Canada = " + pointsOfWork);
+		System.out.println("\n");
+		System.out.println("Points of Relatives in Canada 	= " + pointsOfRelatives);
+		System.out.println(("Points of Study in Canada 	= " + pointsOfStudy));
+		System.out.println("Points of Work in Canada 	= " + pointsOfWork);
 		pointsOfAdaptability = pointsOfRelatives + pointsOfStudy + pointsOfWork;
 		return pointsOfAdaptability;
 	}
