@@ -1,5 +1,7 @@
 package AssignmentWeek7;
 
+import java.util.Scanner;
+
 public class BankAccountDetails {
 
 	int accNumber;
@@ -11,6 +13,8 @@ public class BankAccountDetails {
 		accPin = accountPin;
 		accBalance = accountBalance;
 	}
+
+	Scanner sc = new Scanner(System.in);
 
 	boolean isUserCredentialsCorrect = false;
 
@@ -37,5 +41,27 @@ public class BankAccountDetails {
 	void withdrawMoney(double withdrawAmount) {
 		accBalance = accBalance - withdrawAmount;
 		System.out.println("\nBalance after the withdraw of $" + withdrawAmount + " = $" + accBalance);
+	}
+
+	void checkIsBalanceInSufficient(boolean isBalanceInSufficient) {
+		int numberOfWithdrawAttempts = 0;
+		double withdrawAmount;
+		while (isBalanceInSufficient) {
+			numberOfWithdrawAttempts++;
+			if (numberOfWithdrawAttempts > 2) {
+				System.out.println("Attempts exceeded! Start again");
+				System.exit(0);
+			}
+			System.out.println("You cannot withdraw money. Your balance is lesser than withdraw amount.");
+			System.out.println("Enter amount lesser or equal to the balance");
+			withdrawAmount = sc.nextDouble();
+			if (accBalance >= withdrawAmount) {
+				withdrawMoney(withdrawAmount);
+				isBalanceInSufficient = false;
+				break;
+			} else {
+				isBalanceInSufficient = true;
+			}
+		}
 	}
 }

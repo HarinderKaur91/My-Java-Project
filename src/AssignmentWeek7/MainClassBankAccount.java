@@ -23,8 +23,8 @@ public class MainClassBankAccount {
 		int choiceOfDepositOrWithdraw = 0;
 		double depositAmount = 0.0;
 		double withdrawAmount = 0.0;
-		int numberOfAttempts = 0;
-		int numberOfWithdrawAttempts = 0;
+		int numberOfLoginAttempts = 0;
+		int numberOfChoiceAttempts = 0;
 		boolean isBalanceInSufficient = false;
 
 		System.out.println("Enter the account number");
@@ -37,30 +37,27 @@ public class MainClassBankAccount {
 			if (isUserCredentialsCorrect) {
 				bankAccountDetails[i].checkBalance();
 				break;
-			} else {
-				isUserCredentialsCorrect = false;
 			}
 		}
-		if (!isUserCredentialsCorrect) {
-			while (!isUserCredentialsCorrect) {
-				numberOfAttempts++;
-				if (numberOfAttempts > 2) {
-					System.out.println("Attempts exceeded! Start again");
-					System.exit(0);
-				}
-				System.out.println("INVALID username or pin.Enter valid credentials");
-				System.out.println("\nEnter the account number");
-				accountNumber = sc.nextInt();
-				System.out.println("Enter the pin");
-				accountPin = sc.nextInt();
-				for (i = 0; i < bankAccountDetails.length; i++) {
-					isUserCredentialsCorrect = bankAccountDetails[i].checkAccountCredentials(accountNumber, accountPin);
-					if (isUserCredentialsCorrect) {
-						bankAccountDetails[i].checkBalance();
-						break;
-					} else {
-						isUserCredentialsCorrect = false;
-					}
+		
+		while (!isUserCredentialsCorrect) {
+			numberOfLoginAttempts++;
+			if (numberOfLoginAttempts > 2) {
+				System.out.println("Attempts exceeded! Start again");
+				System.exit(0);
+			}
+			System.out.println("INVALID username or pin.Enter valid credentials");
+			System.out.println("\nEnter the account number");
+			accountNumber = sc.nextInt();
+			System.out.println("Enter the pin");
+			accountPin = sc.nextInt();
+			for (i = 0; i < bankAccountDetails.length; i++) {
+				isUserCredentialsCorrect = bankAccountDetails[i].checkAccountCredentials(accountNumber, accountPin);
+				if (isUserCredentialsCorrect) {
+					bankAccountDetails[i].checkBalance();
+					break;
+				} else {
+					isUserCredentialsCorrect = false;
 				}
 			}
 		}
@@ -70,8 +67,8 @@ public class MainClassBankAccount {
 		choiceOfDepositOrWithdraw = sc.nextInt();
 
 		while (!(choiceOfDepositOrWithdraw == 1 || choiceOfDepositOrWithdraw == 2)) {
-			numberOfAttempts++;
-			if (numberOfAttempts > 2) {
+			numberOfChoiceAttempts++;
+			if (numberOfChoiceAttempts > 2) {
 				System.out.println("Attempts exceeded! Start again");
 				System.exit(0);
 			}
@@ -83,7 +80,8 @@ public class MainClassBankAccount {
 			System.out.println("Enter amount to be deposited");
 			depositAmount = sc.nextDouble();
 			for (i = 0; i < bankAccountDetails.length; i++) {
-				if ((accountNumber == bankAccountDetails[i].accNumber) && (accountPin == bankAccountDetails[i].accPin)) {
+				if ((accountNumber == bankAccountDetails[i].accNumber)
+						&& (accountPin == bankAccountDetails[i].accPin)) {
 					bankAccountDetails[i].depositMoney(depositAmount);
 					break;
 				}
@@ -92,38 +90,17 @@ public class MainClassBankAccount {
 			System.out.println("Enter amount to be withdrawn");
 			withdrawAmount = sc.nextDouble();
 			for (i = 0; i < bankAccountDetails.length; i++) {
-				if ((accountNumber == bankAccountDetails[i].accNumber) && (accountPin == bankAccountDetails[i].accPin)) {
+				if ((accountNumber == bankAccountDetails[i].accNumber)
+						&& (accountPin == bankAccountDetails[i].accPin)) {
 					if (bankAccountDetails[i].accBalance >= withdrawAmount) {
 						bankAccountDetails[i].withdrawMoney(withdrawAmount);
 						break;
 					} else {
 						isBalanceInSufficient = true;
-					}
-				}
-			}
-			while (isBalanceInSufficient) {
-				numberOfWithdrawAttempts++;
-				if (numberOfWithdrawAttempts > 2) {
-					System.out.println("Attempts exceeded! Start again");
-					System.exit(0);
-				}
-				System.out.println("You cannot withdraw money. Your balance is lesser than withdraw amount.");
-				System.out.println("Enter amount lesser or equal to the balance");
-				withdrawAmount = sc.nextDouble();
-				for (i = 0; i < bankAccountDetails.length; i++) {
-					if ((accountNumber == bankAccountDetails[i].accNumber)
-							&& (accountPin == bankAccountDetails[i].accPin)) {
-						if (bankAccountDetails[i].accBalance >= withdrawAmount) {
-							bankAccountDetails[i].withdrawMoney(withdrawAmount);
-							isBalanceInSufficient = false;
-							break;
-						} else {
-							isBalanceInSufficient = true;
-						}
+						bankAccountDetails[i].checkIsBalanceInSufficient(isBalanceInSufficient);
 					}
 				}
 			}
 		}
-
 	}
 }
