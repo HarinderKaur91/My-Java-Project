@@ -117,25 +117,19 @@ public class CruiseDetailsClass {
 	}
 
 	void displayCruisePackageDetails(int numberOfAdults, int numberOfChildrenAbove5, String doYouWantToPreBookMeal) {
-		if (doYouWantToPreBookMeal.equalsIgnoreCase("yes")) {
 			System.out.println("\nYour Package includes:\n");
 			System.out.println(cruiseName + " Adults 		@	" + numberOfAdults + "	:$" + totalAdultCruisePrice);
 			System.out.println(cruiseName + " Children above 5	@	" + numberOfChildrenAbove5 + "	:$"
 					+ totalKidsAbove5CruisePrice);
+			if (doYouWantToPreBookMeal.equalsIgnoreCase("yes")) {
+
 			System.out.println("Buffet Special Price Adults	@	" + numberOfAdults + "	:$" + totalAdultMealPrice);
 			System.out.println("Buffet Special Price Children above 5 @	" + numberOfChildrenAbove5 + "	:$"
 					+ totalKidsAbove5MealPrice);
+			}
 			System.out.println("Total Price				 	:$" + nf.format(totalPrice));
 			System.out.println("HST	@ 15%					:$" + nf.format(hst));
 			System.out.println("Final Price					:$" + nf.format(finalPrice));
-		} else if (doYouWantToPreBookMeal.equalsIgnoreCase("no")) {
-			System.out.println("\nYour Package includes:\n");
-			System.out.println(cruiseName + " Adults 		@	" + numberOfAdults + "	:$" + totalAdultCruisePrice);
-			System.out.println(cruiseName + " Children above 5	@	" + numberOfChildrenAbove5 + "	:$"
-					+ totalKidsAbove5CruisePrice);
-			System.out.println("Total Price				 	:$" + nf.format(totalPrice));
-			System.out.println("HST	@ 15%					:$" + nf.format(hst));
-			System.out.println("Final Price					:$" + nf.format(finalPrice));
-		}
+		} 
 	}
-}
+
