@@ -75,7 +75,7 @@ public class MainClassCruise {
 		System.out.println("and 4.99 per day for kids above 5?(Yes/No)");
 
 		doYouWantToPreBookMeal = sc.next();
-		while (!(doYouWantToPreBookMeal.equalsIgnoreCase("Yes")) || doYouWantToPreBookMeal.equalsIgnoreCase("No")) {
+		while (!((doYouWantToPreBookMeal.equalsIgnoreCase("Yes")) || (doYouWantToPreBookMeal.equalsIgnoreCase("No")))) {
 			numberOfMealAttempts++;
 			if (numberOfMealAttempts > 2) {
 				System.out.println("Attempts exceeded! Start again");
@@ -84,6 +84,7 @@ public class MainClassCruise {
 			System.out.println("INVALID INPUT! Enter yes or no");
 			doYouWantToPreBookMeal = sc.next();
 		}
+		
 		if (doYouWantToPreBookMeal.equalsIgnoreCase("Yes")) {
 			switch (cruiseName) {
 			case "Scenic Cruise":

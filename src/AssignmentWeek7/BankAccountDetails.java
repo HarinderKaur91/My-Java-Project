@@ -28,7 +28,7 @@ public class BankAccountDetails {
 	void depositMoney(double depositAmount) {
 		if (depositAmount > 0.0) {
 			accBalance = accBalance + depositAmount;
-			System.out.println("Balance after the deposit of $" + depositAmount + " = $" + accBalance);
+			System.out.println("\nBalance after the deposit of $" + depositAmount + " = $" + accBalance);
 		} else {
 			System.out.println("You cannot deposit negative amount. Start again.");
 		}
@@ -36,6 +36,6 @@ public class BankAccountDetails {
 
 	void withdrawMoney(double withdrawAmount) {
 		accBalance = accBalance - withdrawAmount;
-		System.out.println("Balance after the withdraw of $" + withdrawAmount + " = $" + accBalance);
+		System.out.println("\nBalance after the withdraw of $" + withdrawAmount + " = $" + accBalance);
 	}
 }
