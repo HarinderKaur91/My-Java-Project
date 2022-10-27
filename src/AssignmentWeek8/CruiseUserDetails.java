@@ -24,6 +24,18 @@ public class CruiseUserDetails {
 		return false;
 	}
 
+	public boolean checkIsEmailValid(String emailAddress) {
+	    String regexPattern = "^(.+)@(.+)$";
+		    
+	    Pattern p = Pattern.compile(regexPattern); // Compile the ReGex
+		if (emailAddress.equals(null)) { // If the email is empty, return false
+			return false;
+		}
+		Matcher m = p.matcher(emailAddress); // Pattern class contains matcher() method to find matching between given
+											// emailAddress and regular expression.
+		return m.matches();// Return if the emailAddress matched the regexPattern
+	}
+		
 	public boolean checkIsPasswordValid(String password) {
 		String regex = "^(?=.*[0-9])"			// Regular expression to check valid password.
 		+"(?=.*[a-z])(?=.*[A-Z])" 

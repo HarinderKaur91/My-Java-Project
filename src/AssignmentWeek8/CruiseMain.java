@@ -40,10 +40,13 @@ public class CruiseMain {
 
 		System.out.println("Enter your email address.");
 		email = sc.nextLine();
-		while (email.equals("")) {
-			System.out.println("email field cannot be empty.Please enter your email.");
+		boolean isEmailValid = user1.checkIsEmailValid(email);
+		while (!isEmailValid) {
+			System.out.println("Valid email required.Enter again");
 			email = sc.nextLine();
+			isEmailValid = user1.checkIsEmailValid(email);
 		}
+		
 		System.out.println("Enter the password that you want to use.");
 		password = sc.nextLine();
 		boolean isPasswordValid = user1.checkIsPasswordValid(password);
