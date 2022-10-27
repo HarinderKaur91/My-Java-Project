@@ -3,7 +3,7 @@ package AssignmentWeek7;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
-public class CruiseDetailsClass {
+public class CruisePriceDetails {
 	String cruiseName;
 	double adultCruisePrice;
 	double kidsAbove5CruisePrice;
@@ -12,7 +12,7 @@ public class CruiseDetailsClass {
 	NumberFormat nf = NumberFormat.getInstance();
 	Scanner sc = new Scanner(System.in);
 
-	public CruiseDetailsClass(String nameOfCruise, double priceOfAdults, double priceOfKidsAbove5, int numOfDays) {
+	public CruisePriceDetails(String nameOfCruise, double priceOfAdults, double priceOfKidsAbove5, int numOfDays) {
 		cruiseName = nameOfCruise;
 		adultCruisePrice = priceOfAdults;
 		kidsAbove5CruisePrice = priceOfKidsAbove5;

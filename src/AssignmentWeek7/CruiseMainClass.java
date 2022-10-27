@@ -7,12 +7,12 @@ public class CruiseMainClass {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		CruiseDetailsClass scenicCruise = new CruiseDetailsClass("Scenic Cruise", 43.99, 12.99, 3);
-		CruiseDetailsClass sunsetCruise = new CruiseDetailsClass("Sunset Cruise", 52.99, 15.99, 1);
-		CruiseDetailsClass discoveryCruise = new CruiseDetailsClass("Discovery Cruise", 39.99, 9.99, 4);
-		CruiseDetailsClass mysteryCruise = new CruiseDetailsClass("Mystery Cruise", 45.99, 12.99, 2);
+		CruisePriceDetails scenicCruise = new CruisePriceDetails("Scenic Cruise", 43.99, 12.99, 3);
+		CruisePriceDetails sunsetCruise = new CruisePriceDetails("Sunset Cruise", 52.99, 15.99, 1);
+		CruisePriceDetails discoveryCruise = new CruisePriceDetails("Discovery Cruise", 39.99, 9.99, 4);
+		CruisePriceDetails mysteryCruise = new CruisePriceDetails("Mystery Cruise", 45.99, 12.99, 2);
 
-		CruiseDetailsClass[] cruiseDetails = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
+		CruisePriceDetails[] cruiseDetails = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
 
 		int i = 0;
 		String cruiseNameSelected = " ";
