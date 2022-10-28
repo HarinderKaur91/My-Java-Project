@@ -46,7 +46,7 @@ public class CruiseMain {
 			email = sc.nextLine();
 			isEmailValid = user1.checkIsEmailValid(email);
 		}
-		
+
 		System.out.println("Enter the password that you want to use.");
 		password = sc.nextLine();
 		boolean isPasswordValid = user1.checkIsPasswordValid(password);
@@ -56,17 +56,21 @@ public class CruiseMain {
 			password = sc.nextLine();
 			isPasswordValid = user1.checkIsPasswordValid(password);
 		}
+
 		System.out.println("Enter you Full Name");
 		fullName = sc.nextLine();
 		while (fullName.equals("")) {
 			System.out.println("FullName field cannot be empty.Please enter your Full Name.");
 			fullName = sc.nextLine();
 		}
+
 		System.out.println("Enter your phone number");
 		phoneNumber = sc.nextLine();
-		while (phoneNumber.equals("")) {
-			System.out.println("Phone Number field cannot be empty.Please enter your phone number.");
+		boolean isPhoneNumberValid = user1.checkIsPhoneNumberValid(phoneNumber);
+		while (!isPhoneNumberValid) {
+			System.out.println("A phone number should be of 10 digits.Enter again ");
 			phoneNumber = sc.nextLine();
+			isPhoneNumberValid = user1.checkIsPhoneNumberValid(phoneNumber);
 		}
 
 		user1.userSignUp(email, password, fullName, phoneNumber);
@@ -89,7 +93,7 @@ public class CruiseMain {
 		isLoginSuccessful = user1.userLogin(loginUserName, loginPassword);
 		while (!isLoginSuccessful) {
 			numberOfLoginAttempts++;
-			if (numberOfLoginAttempts > 1) {
+			if (numberOfLoginAttempts > 2) {
 				System.out.println("Attempts exceeded!Start again");
 				break;
 			}
@@ -200,6 +204,12 @@ public class CruiseMain {
 						if (isPasswordMatching) {
 							System.out.println("Enter your new password");
 							String newPassword = sc.next();
+							isPasswordValid = user1.checkIsPasswordValid(newPassword);
+							while (!isPasswordValid) {
+								System.out.println("A minimum 8 characters password with a combination of uppercase and lowercase letter and one special character with number are required.");
+								newPassword = sc.nextLine();
+								isPasswordValid = user1.checkIsPasswordValid(newPassword);
+							}
 							user1.setPassword(newPassword);
 						}
 						break;
@@ -207,6 +217,12 @@ public class CruiseMain {
 						if (isPasswordMatching) {
 							System.out.println("Enter your new Phone number");
 							String newPhoneNumber = sc.next();
+							isPhoneNumberValid = user1.checkIsPhoneNumberValid(newPhoneNumber);
+							while (!isPhoneNumberValid) {
+								System.out.println("A phone number should be of 10 digits.Enter again");
+								newPhoneNumber = sc.nextLine();
+								isPhoneNumberValid = user1.checkIsPhoneNumberValid(newPhoneNumber);
+							}
 							user1.setPhoneNumber(newPhoneNumber);
 						}
 						break;
@@ -214,6 +230,12 @@ public class CruiseMain {
 						if (isPasswordMatching) {
 							System.out.println("Enter your new email");
 							String newEmail = sc.next();
+							isEmailValid = user1.checkIsEmailValid(newEmail);
+							while (!isEmailValid) {
+								System.out.println("Valid email required.Enter again");
+								newEmail = sc.nextLine();
+								isEmailValid = user1.checkIsEmailValid(newEmail);
+							}
 							user1.setUserName(newEmail);
 						}
 						break;

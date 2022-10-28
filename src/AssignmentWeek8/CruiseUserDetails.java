@@ -25,30 +25,34 @@ public class CruiseUserDetails {
 	}
 
 	public boolean checkIsEmailValid(String emailAddress) {
-	    String regexPattern = "^(.+)@(.+)$";
-		    
-	    Pattern p = Pattern.compile(regexPattern); // Compile the ReGex
+		String regexPattern = "^(.+)@(.+)$";
+		Pattern p = Pattern.compile(regexPattern); // Compile the ReGex
 		if (emailAddress.equals(null)) { // If the email is empty, return false
 			return false;
 		}
 		Matcher m = p.matcher(emailAddress); // Pattern class contains matcher() method to find matching between given
-											// emailAddress and regular expression.
+												// emailAddress and regular expression.
 		return m.matches();// Return if the emailAddress matched the regexPattern
 	}
-		
-	public boolean checkIsPasswordValid(String password) {
-		String regex = "^(?=.*[0-9])"			// Regular expression to check valid password.
-		+"(?=.*[a-z])(?=.*[A-Z])" 
-		+ "(?=.*[@#$%^&+=])"
-		+ "(?=\\S+$).{8,20}$";
 
-		Pattern p = Pattern.compile(regex); // Compile the ReGex
-		if (password.equals(null)) { // If the password is empty, return false
+	public boolean checkIsPasswordValid(String password) {
+		String regex = "^(?=.*[0-9])" // Regular expression to check valid password.
+				+ "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$";
+		Pattern p = Pattern.compile(regex); 
+		if (password.equals(null)) { 
 			return false;
 		}
-		Matcher m = p.matcher(password); // Pattern class contains matcher() method to find matching between given
-											// password and regular expression.
-		return m.matches();// Return if the password matched the ReGex
+		Matcher m = p.matcher(password); 
+		return m.matches();
+	}
+
+	public boolean checkIsPhoneNumberValid(String phoneNumber) {
+		Pattern p = Pattern.compile("^\\d{10}$");
+		if (phoneNumber.equals(null)) {
+			return false;
+		}
+		Matcher m = p.matcher(phoneNumber);
+		return m.matches();
 	}
 
 	boolean checkIsPasswordMatching(String existingPassword) {
