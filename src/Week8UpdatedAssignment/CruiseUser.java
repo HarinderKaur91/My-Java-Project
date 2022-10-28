@@ -8,9 +8,12 @@ public class CruiseUser {
 	private String password;
 	public String fullName;
 	private String phoneNumber;
+
 	Scanner sc = new Scanner(System.in);
+
 	String loginUserName;
 	String loginPassword;
+	String doYouWantToChangePersonalInfo = "";
 
 	void userSignUp() {
 		System.out.println("Welcome to Cruise Booking \nPlease SIGN UP to book a cruise\n");
@@ -121,6 +124,22 @@ public class CruiseUser {
 			return true;
 		}
 		return false;
+	}
+
+	void checkIfUserWantsToChangePersonalInfo() {
+
+		System.out.println("\nDo you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
+		doYouWantToChangePersonalInfo = sc.next();
+		do {
+			if (doYouWantToChangePersonalInfo.equalsIgnoreCase("Y")) {
+				updatePersonalInformation();
+			} else {
+				System.exit(0);
+			}
+			System.out.println(
+					"\nDo you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
+			doYouWantToChangePersonalInfo = sc.next();
+		} while (doYouWantToChangePersonalInfo.equalsIgnoreCase("Y"));
 	}
 
 	int infoYouWantToChange = 0;

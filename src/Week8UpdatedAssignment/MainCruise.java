@@ -17,8 +17,7 @@ public class MainCruise {
 
 		int i = 0;
 		String doYouWantToContinue = " ";
-		String doYouWantToChangePersonalInfo = "";
-		
+
 		user1.userSignUp();
 		user1.userLogin();
 
@@ -30,32 +29,23 @@ public class MainCruise {
 		if (isLoginSuccessful) {
 			do {
 				cruiseDetails[i].displayTypesOfCruise(cruiseDetails);
-				System.out.println("\nPlease press Y if you want to continue with the selection or press any other alphabet to select another.");
+				System.out.println(
+						"\nPlease press Y if you want to continue with the selection or press any other alphabet to select another.");
 				doYouWantToContinue = sc.nextLine();
 			} while (!doYouWantToContinue.equalsIgnoreCase("Y"));
 		}
-		
+
 		int numberOfAdults = cruiseDetails[i].numberOfAdultCheck();
 		int numberOfChildrenAbove5 = cruiseDetails[i].ageCheck();
-		String doYouWantToPreBookMeal= cruiseDetails[i].checkIfMealRequired();
+		String doYouWantToPreBookMeal = cruiseDetails[i].checkIfMealRequired();
 
 		for (i = 0; i < cruiseDetails.length; i++) {
 			cruiseDetails[i].displayCruiseFinalPriceByAddingAllPrices(cruiseDetails, numberOfAdults,
 					numberOfChildrenAbove5, doYouWantToPreBookMeal);
 		}
 
-		System.out.println("\nDo you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
-		doYouWantToChangePersonalInfo = sc.next();
-		do {
-			if (doYouWantToChangePersonalInfo.equalsIgnoreCase("Y")) {
-				user1.updatePersonalInformation();
-			} else {
-				System.exit(0);
-			}
-			System.out.println(
-					"\nDo you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
-			doYouWantToChangePersonalInfo = sc.next();
-		} while (doYouWantToChangePersonalInfo.equalsIgnoreCase("Y"));
+		user1.checkIfUserWantsToChangePersonalInfo();
+
 		System.out.println("\nThank you for using the service!");
 	}
 }
