@@ -27,8 +27,12 @@ public class CruisePrice {
 	double hst;
 	double totalPrice;
 	double finalPrice;
+	int numberOfChildren = 0;
 	int numberOfChildrenAbove5 = 0;
+	int numberOfAdults = 0;
 	int adultAttempts = 0;
+	String doYouWantToPreBookMeal = " ";
+	int numberOfMealAttempts = 0;
 
 	void displayTypesOfCruise(CruisePrice[] cruiseDetails) {
 		int numberOfCruiseAttempts = 0;
@@ -67,6 +71,24 @@ public class CruisePrice {
 		System.out.println("Price for kids above 5				:" + kidsAbove5CruisePrice + " per day");
 	}
 
+	String checkIfMealRequired() {
+		System.out.println("\nAll our cruises have food service on board.");
+		System.out.println(
+				"Do you want to pre-book for dinner buffet meals at 20.99 per day for adults and 4.99 per day for kids above 5?(Y/N)");
+
+		doYouWantToPreBookMeal = sc.next();
+		while (!((doYouWantToPreBookMeal.equalsIgnoreCase("Y")) || (doYouWantToPreBookMeal.equalsIgnoreCase("N")))) {
+			numberOfMealAttempts++;
+			if (numberOfMealAttempts > 2) {
+				System.out.println("Attempts exceeded! Start again");
+				System.exit(0);
+			}
+			System.out.println("INVALID INPUT! Enter Y or N");
+			doYouWantToPreBookMeal = sc.next();
+		}
+		return doYouWantToPreBookMeal;
+	}
+
 	double calculateCruisePriceForAdults(int numberOfAdults) {
 		totalAdultCruisePrice = numberOfAdults * daysOfCruise * adultCruisePrice;
 		return totalAdultCruisePrice;
@@ -87,20 +109,27 @@ public class CruisePrice {
 		return totalKidsAbove5MealPrice;
 	}
 
-	int numberOfAdultCheck(int numberOfAdults) {
-		while (!(numberOfAdults > 0)) {
-			adultAttempts++;
-			if (adultAttempts > 2) {
-				System.out.println("Attempts exceeded! Start again.");
-				System.exit(0);
+	int numberOfAdultCheck() {
+		System.out.println("Enter the number of adults");
+		numberOfAdults = sc.nextInt();
+		if (numberOfAdults == 0) {
+			while (!(numberOfAdults > 0)) {
+				adultAttempts++;
+				if (adultAttempts > 2) {
+					System.out.println("Attempts exceeded! Start again.");
+					System.exit(0);
+				}
+				System.out.println("Enter atleast 1 adult.");
+				numberOfAdults = sc.nextInt();
 			}
-			System.out.println("Enter atleast 1 adult.");
-			numberOfAdults = sc.nextInt();
 		}
 		return numberOfAdults;
 	}
 
-	int ageCheck(int numberOfChildren, int age) {
+	int ageCheck() {
+		int age = 0;
+		System.out.println("Enter the number of children");
+		numberOfChildren = sc.nextInt();
 		for (int i = 0; i < numberOfChildren; i++) {
 			if (numberOfChildren > 0) {
 				System.out.println("Enter the age of child " + (i + 1));
@@ -163,10 +192,9 @@ public class CruisePrice {
 		System.out.println("Final Price					:$" + nf.format(finalPrice));
 	}
 
-	void displayCruiseFinalPriceByAddingAllPrices(CruisePrice[] cruiseDetails, int numberOfAdults, int numberOfChildrenAbove5,
-			String doYouWantToPreBookMeal) {
+	void displayCruiseFinalPriceByAddingAllPrices(CruisePrice[] cruiseDetails, int numberOfAdults,
+			int numberOfChildrenAbove5, String doYouWantToPreBookMeal) {
 		for (int i = 0; i < cruiseDetails.length; i++) {
-
 			if (cruiseNameSelected.equalsIgnoreCase(cruiseDetails[i].cruiseName)) {
 				cruiseDetails[i].calculateCruisePriceForAdults(numberOfAdults);
 				cruiseDetails[i].calculateCruisePriceForChildrenAbove5(numberOfChildrenAbove5);
