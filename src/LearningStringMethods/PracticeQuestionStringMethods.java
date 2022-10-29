@@ -7,11 +7,10 @@ public class PracticeQuestionStringMethods {
 		String name = "Harinder Kaur";
 
 		// replacing last name with '*'
-		System.out.println("1.Name after replacing last name with * :" + name.replaceAll("\\bKaur\\b", "*"));
-		// \b specifies regex for word boundary and it will replace only the exact word
+		String firstName = name.substring(0, name.indexOf(" "));
+		String lastName = name.substring(name.indexOf(" ") + 1);
 
-		// Other way to replace last name with '*'
-		System.out.println("2.Name after replacing last name with * :" + name.replace(name.substring(name.indexOf(" ") + 1), "*"));
+		System.out.println("Name after replacing last name with * :" + firstName + " " + lastName.replaceAll("\\w", "*"));
 
 		// print first name
 		System.out.println("First name is :" + name.substring(0, name.indexOf(" ")));
