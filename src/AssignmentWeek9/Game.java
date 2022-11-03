@@ -13,7 +13,7 @@ public class Game {
 
 	void GuessTheName(String randomName) {
 		System.out.println("WELCOME TO GUESS THE STUDENT GAME");
-		maskedName = randomName.replaceAll("\\w", "_");		// mask random element to '_'
+		maskedName = randomName.replaceAll("\\w", "_"); // mask random element to '_'
 		while (counterForWrongGuess < 5 && maskedName.contains("_")) {
 			System.out.println("You are guessing :" + maskedName);
 			System.out.println("Guess a letter:");
@@ -38,8 +38,6 @@ public class Game {
 				if (matchedLetters.contains(guessedLetter)) {
 					isLetterAlreadyMatched = true;
 				}
-				matchedLetters += guessedLetter.charAt(0);
-
 				if (matchCount == 1 && !isLetterAlreadyMatched) {
 					System.out.println("You have guesssed (0) wrong letters:");
 				}
@@ -52,6 +50,7 @@ public class Game {
 
 		if (maskedName.equals(guessedName)) {
 			counterForWrongGuess++;
+			nonMatchedLetters += " " + guessedLetter;
 			System.out.println("You have guesssed (" + counterForWrongGuess + ") wrong letters:" + nonMatchedLetters);
 			if (counterForWrongGuess == 5) {
 				System.out.println("Attempts exceeded!GAME OVER!");
@@ -62,7 +61,7 @@ public class Game {
 		}
 		if (maskedName.equals(randomName)) {
 			System.out.println("Hurray! You WIN!");
-			System.out.println("You have guessed '" + maskedName +"' correctly");
+			System.out.println("You have guessed '" + maskedName + "' correctly");
 		}
 	}
 }
