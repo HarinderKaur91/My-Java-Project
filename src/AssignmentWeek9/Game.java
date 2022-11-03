@@ -3,7 +3,6 @@ package AssignmentWeek9;
 import java.util.Scanner;
 
 public class Game {
-
 	String maskedName = "";
 	int counterForWrongGuess = 0;
 	String nonMatchedLetters = "";
@@ -29,15 +28,24 @@ public class Game {
 		String guessedLetterInLowerCase = guessedLetter.toLowerCase();
 		String guessedLetterInUpperCase = guessedLetter.toUpperCase();
 		for (int i = 0; i < randomName.length(); i++) {
-
 			boolean isLetterAlreadyMatched = false;
 			if (randomName.charAt(i) == guessedLetterInLowerCase.charAt(0)
 					|| randomName.charAt(i) == guessedLetterInUpperCase.charAt(0)) {
 				matchCount++;
 				guessedName += randomName.charAt(i);
-				if (matchedLetters.contains(guessedLetter)) {
+				matchedLetters += guessedLetter.charAt(0);
+				char[] matchedLettersToCharArray = matchedLetters.toCharArray();
+				int counterForAlreadyMatchedLetters = 0;
+
+				for (int j = 0; j < matchedLettersToCharArray.length; j++) {
+					if (matchedLettersToCharArray[j] == guessedLetter.charAt(0)) {
+						counterForAlreadyMatchedLetters++;
+					}
+				}
+				if (counterForAlreadyMatchedLetters > 1) {
 					isLetterAlreadyMatched = true;
 				}
+
 				if (matchCount == 1 && !isLetterAlreadyMatched) {
 					System.out.println("You have guesssed (0) wrong letters:");
 				}
