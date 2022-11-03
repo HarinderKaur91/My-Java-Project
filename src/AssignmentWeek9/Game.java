@@ -12,6 +12,7 @@ public class Game {
 	Scanner sc = new Scanner(System.in);
 
 	void GuessTheName(String randomName) {
+		System.out.println("WELCOME TO GUESS THE STUDENT GAME");
 		maskedName = randomName.replaceAll("\\w", "_");		// mask random element to '_'
 		while (counterForWrongGuess < 5 && maskedName.contains("_")) {
 			System.out.println("You are guessing :" + maskedName);
@@ -53,7 +54,8 @@ public class Game {
 			counterForWrongGuess++;
 			System.out.println("You have guesssed (" + counterForWrongGuess + ") wrong letters:" + nonMatchedLetters);
 			if (counterForWrongGuess == 5) {
-				System.out.println("Attempts exceeded! The name was " + randomName);
+				System.out.println("Attempts exceeded!GAME OVER!");
+				System.out.println("The name was " + randomName);
 			}
 		} else {
 			maskedName = guessedName;

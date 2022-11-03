@@ -14,8 +14,6 @@ public class MainGuessTheStudent {
 		List<String> list = file.readingFileIntoList("C:\\Users\\Harry\\Desktop\\NameList.txt");
 
 		String randomName = file.getRandomName(list);
-		System.out.println("Random name = " + randomName);
-
 		game.GuessTheName(randomName );
 		
 	}
