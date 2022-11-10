@@ -17,9 +17,9 @@ public class HotelBooking extends UserDetails {
 	double adultAdditionalMealPrice = 0.0;
 	double childAdditionalMealPrice = 0.0;
 	int adultAttempts = 0;
-	double hst = 0.0;
-	double totalPrice = 0.0;
-	double finalPrice = 0.0;
+	private double hst = 0.0;
+	private double totalPrice = 0.0;
+	private double finalPrice = 0.0;
 	int numOfStayDays = 0;
 
 	void hotelStay(HotelBooking[] hotelBooking) {

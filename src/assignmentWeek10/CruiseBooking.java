@@ -21,13 +21,13 @@ public class CruiseBooking extends UserDetails {
 	}
 
 	String cruiseNameSelected = "";
-	double totalAdultCruisePrice;
-	double totalKidsAbove5CruisePrice;
-	double totalAdultMealPrice;
-	double totalKidsAbove5MealPrice;
-	double hst;
-	double totalPrice;
-	double finalPrice;
+	private double totalAdultCruisePrice;
+	private double totalKidsAbove5CruisePrice;
+	private double totalAdultMealPrice;
+	private double totalKidsAbove5MealPrice;
+	private double hst;
+	private double totalPrice;
+	private double finalPrice;
 	int numberOfChildren = 0;
 	int numberOfChildrenAbove5 = 0;
 
@@ -110,7 +110,7 @@ public class CruiseBooking extends UserDetails {
 	int numberOfAdultCheck() {
 		System.out.println("Enter the number of adults");
 		numberOfAdults = sc.nextInt();
-		if (numberOfAdults < 0 ||numberOfAdults == 0) {
+		if (numberOfAdults < 0 || numberOfAdults == 0) {
 			while (!(numberOfAdults > 0)) {
 				adultAttempts++;
 				if (adultAttempts > 2) {
@@ -155,10 +155,10 @@ public class CruiseBooking extends UserDetails {
 		return numberOfChildrenAbove5;
 	}
 
-	private double calculateTotalPrice(String cruiseNameSelected, String doYouWantToPreBookMeal, String doYouWantToPreBookSpa,
-			double spaCharges, String doYouWantCandleLightDinner, double candleLightDinnerCharges,
-			String doYouWantToPreBookGames, double adventureGamesFee, String doYouWantToPreBookCasino,
-			double casinoFee) {
+	private double calculateTotalPrice(String cruiseNameSelected, String doYouWantToPreBookMeal,
+			String doYouWantToPreBookSpa, double spaCharges, String doYouWantCandleLightDinner,
+			double candleLightDinnerCharges, String doYouWantToPreBookGames, double adventureGamesFee,
+			String doYouWantToPreBookCasino, double casinoFee) {
 		if (doYouWantToPreBookMeal.equalsIgnoreCase("Y")) {
 			totalPrice = totalAdultCruisePrice + totalKidsAbove5CruisePrice + totalAdultMealPrice
 					+ totalKidsAbove5MealPrice;
@@ -198,7 +198,7 @@ public class CruiseBooking extends UserDetails {
 		return hst;
 	}
 
-	private	double calculateFinalPrice() {
+	private double calculateFinalPrice() {
 		finalPrice = totalPrice + hst;
 		return finalPrice;
 	}
@@ -228,10 +228,10 @@ public class CruiseBooking extends UserDetails {
 		}
 	}
 
-	private	void displayCruisePackageDetails(int numberOfAdults, int numberOfChildrenAbove5, String doYouWantToPreBookMeal,
-			String doYouWantToPreBookSpa, String doYouWantCandleLightDinner, String doYouWantToPreBookGames,
-			String doYouWantToPreBookCasino, double spaCharges, double candleLightDinnerCharges,
-			double adventureGamesFee, double casinoFee) {
+	private void displayCruisePackageDetails(int numberOfAdults, int numberOfChildrenAbove5,
+			String doYouWantToPreBookMeal, String doYouWantToPreBookSpa, String doYouWantCandleLightDinner,
+			String doYouWantToPreBookGames, String doYouWantToPreBookCasino, double spaCharges,
+			double candleLightDinnerCharges, double adventureGamesFee, double casinoFee) {
 
 		System.out.println("\nYour Package includes:\n");
 		System.out.println(cruiseName + " Adults 		@	" + numberOfAdults + "	:$" + totalAdultCruisePrice);
