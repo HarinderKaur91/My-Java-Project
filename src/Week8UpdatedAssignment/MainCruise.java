@@ -13,7 +13,7 @@ public class MainCruise {
 		CruisePrice mysteryCruise = new CruisePrice("Mystery Cruise", 45.99, 12.99, 2);
 
 		CruisePrice[] cruiseDetails = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
-		CruiseUser user1 = new CruiseUser();
+		UserDetails user1 = new UserDetails();
 
 		int i = 0;
 		String doYouWantToContinue = " ";

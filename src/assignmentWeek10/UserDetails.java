@@ -1,9 +1,10 @@
-package Week8UpdatedAssignment;
+package assignmentWeek10;
 
 import java.util.Scanner;
 import java.util.regex.*;
 
-public class CruiseUser {
+public class UserDetails {
+
 	private String userName;
 	private String password;
 	public String fullName;
@@ -16,7 +17,7 @@ public class CruiseUser {
 	String doYouWantToChangePersonalInfo = "";
 
 	void userSignUp() {
-		System.out.println("Welcome to Cruise Booking \nPlease SIGN UP to book a cruise\n");
+		System.out.println("\nPlease SIGN UP to book a service.\n");
 
 		System.out.println("Enter your email address.");
 		userName = sc.nextLine();
@@ -47,48 +48,9 @@ public class CruiseUser {
 			phoneNumber = sc.nextLine();
 		}
 		System.out.println("Thank you for registering!\n");
-		System.out.println("Now you can LOGIN to select your cruise\n");
 	}
 
-	void userLogin() {
-		System.out.println("Enter username");
-		loginUserName = sc.nextLine();
-		while (loginUserName.equals("")) {
-			System.out.println("You cannot login without username.Enter username");
-			loginUserName = sc.nextLine();
-		}
-		System.out.println("Enter password");
-		loginPassword = sc.nextLine();
-		while (loginPassword.equals("")) {
-			System.out.println("You cannot login without password.Enter password");
-			loginPassword = sc.nextLine();
-		}
-	}
-
-	boolean checkIsLoginSuccessful() {
-		if (loginUserName.equals(userName) && loginPassword.equals(password)) {
-			System.out.println("LOGIN Successfully\n");
-			return true;
-		}
-		return false;
-	}
-
-	int numberOfLoginAttempts = 0;
-
-	boolean checkNumberOfLoginAttempts() {
-		numberOfLoginAttempts++;
-		if (numberOfLoginAttempts > 2) {
-			System.out.println("Attempts exceeded!Start again");
-			System.exit(0);
-			;
-		}
-		System.out.println("LOGIN failed! Enter correct credentials");
-		userLogin();
-		return (checkIsLoginSuccessful());
-
-	}
-
-	public boolean checkIsEmailValid(String emailAddress) {
+	boolean checkIsEmailValid(String emailAddress) {
 		String regexPattern = "^(.+)@(.+)$";
 		Pattern p = Pattern.compile(regexPattern); // Compile the ReGex
 		if (emailAddress.equals(null)) { // If the email is empty, return false
@@ -99,7 +61,7 @@ public class CruiseUser {
 		return m.matches();// Return if the emailAddress matched the regexPattern
 	}
 
-	public boolean checkIsPasswordValid(String password) {
+	boolean checkIsPasswordValid(String password) {
 		String regex = "^(?=.*[0-9])" // Regular expression to check valid password.
 				+ "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$";
 		Pattern p = Pattern.compile(regex);
@@ -110,7 +72,7 @@ public class CruiseUser {
 		return m.matches();
 	}
 
-	public boolean checkIsPhoneNumberValid(String phoneNumber) {
+	boolean checkIsPhoneNumberValid(String phoneNumber) {
 		Pattern p = Pattern.compile("^\\d{10}$");
 		if (phoneNumber.equals(null)) {
 			return false;
@@ -128,13 +90,14 @@ public class CruiseUser {
 
 	void checkIfUserWantsToChangePersonalInfo() {
 
-		System.out.println("\nDo you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
+		System.out.println(
+				"\nDo you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
 		doYouWantToChangePersonalInfo = sc.next();
 		do {
 			if (doYouWantToChangePersonalInfo.equalsIgnoreCase("Y")) {
 				updatePersonalInformation();
 			} else {
-				System.exit(0);
+				break;
 			}
 			System.out.println(
 					"\nDo you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
@@ -144,7 +107,7 @@ public class CruiseUser {
 
 	int infoYouWantToChange = 0;
 
-	void updatePersonalInformation() {
+	private void updatePersonalInformation() {
 
 		int numberOfPasswordAttempts = 0;
 		System.out.println("Please enter the information you want to change.\n" + "1.	Password\n"
