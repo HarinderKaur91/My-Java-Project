@@ -259,5 +259,4 @@ public class CruiseBooking extends UserDetails {
 		System.out.println("HST	@ 15%					:$" + nf.format(hst));
 		System.out.println("Final Price					:$" + nf.format(finalPrice));
 	}
-
 }

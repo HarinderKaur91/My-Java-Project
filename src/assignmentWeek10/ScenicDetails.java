@@ -29,5 +29,4 @@ public class ScenicDetails extends CruiseBooking {
  		spaCharges = numberOfAdults * 50;
 		return spaCharges;
 	}
-
 }

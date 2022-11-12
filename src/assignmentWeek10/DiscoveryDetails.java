@@ -29,5 +29,4 @@ public class DiscoveryDetails extends CruiseBooking {
 		adventureGamesFee = numberOfAdults * 50;
 		return adventureGamesFee;
 	}
-
 }
