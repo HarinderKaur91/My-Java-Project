@@ -53,8 +53,5 @@ public class StringFormat {
 		
 		System.out.println("Index of Rajbir is " + indexOfRajbirAge);
 		System.out.println("Age without just word: " + rajbirUpdatedAge);
-		
-		
-	}
-
+		}
 }

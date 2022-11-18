@@ -12,7 +12,7 @@ public class CruiseMain {
 		CruisePriceDetails discoveryCruise = new CruisePriceDetails("Discovery Cruise", 39.99, 9.99, 4);
 		CruisePriceDetails mysteryCruise = new CruisePriceDetails("Mystery Cruise", 45.99, 12.99, 2);
 
-		CruisePriceDetails[] cruiseDetails = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
+		CruisePriceDetails[] cruiseDetails = {scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise};
 
 		int i = 0;
 		String cruiseNameSelected = " ";
@@ -77,6 +77,7 @@ public class CruiseMain {
 
 		System.out.println("Thank you for registering!\n");
 		System.out.println("Now you can LOGIN to select your cruise\n");
+		
 		System.out.println("Enter username");
 		loginUserName = sc.nextLine();
 		while (loginUserName.equals("")) {
